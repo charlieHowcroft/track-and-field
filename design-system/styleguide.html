@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design System · Track &amp; Field</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="components.css">
+  <style>
+    /* Styleguide-only helpers (not part of the design system) */
+    .sg-label { margin-bottom: var(--space-6); }
+    .swatches { --grid-min: 9rem; --grid-gap: var(--space-4); }
+    .swatch { border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; }
+    .swatch__chip { height: 5rem; }
+    .swatch__meta { padding: var(--space-3); font-size: var(--text-xs); }
+    .swatch__meta code { display: block; font-family: var(--font-mono); color: var(--color-text-subtle); }
+    .type-row { display: grid; grid-template-columns: 7rem 1fr; gap: var(--space-5); align-items: baseline; padding-block: var(--space-4); border-bottom: 1px solid var(--color-border); }
+    .type-row code { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-subtle); }
+    .row { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; }
+    @media (max-width: 30rem) { .type-row { grid-template-columns: 1fr; gap: var(--space-2); } }
+    .space-bar { height: 0.75rem; background: var(--color-accent); border-radius: 2px; }
+
+    /* Theme switcher (styleguide only) */
+    .switcher {
+      position: fixed; left: 50%; bottom: var(--space-4); transform: translateX(-50%); z-index: 20;
+      display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; justify-content: center;
+      max-width: calc(100vw - 2rem);
+      padding: var(--space-2) var(--space-3);
+      background: rgb(17 17 17 / 0.85); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+      border: 1px solid var(--color-border-strong); border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg); font-size: var(--text-xs);
+    }
+    .switcher__swatch {
+      width: 1.75rem; height: 1.75rem; padding: 0; border-radius: 50%; cursor: pointer;
+      background: var(--sw); border: 2px solid transparent; box-shadow: inset 0 0 0 2px var(--color-surface);
+    }
+    .switcher__swatch[aria-pressed="true"] { border-color: var(--color-text); }
+    .switcher__name { min-width: 7.5rem; color: var(--color-text-muted); padding-inline: var(--space-2); }
+    .switcher label { display: flex; align-items: center; gap: var(--space-2); color: var(--color-text-muted); cursor: pointer; padding-left: var(--space-2); border-left: 1px solid var(--color-border); }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="#" class="nav__brand">Track &amp; Field</a>
+      <ul class="nav__links" id="nav-menu">
+        <li><a href="#" aria-current="page">How it works</a></li>
+        <li><a href="#">Athletes</a></li>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">For parents</a></li>
+        <li class="nav__menu-cta"><a href="#" class="btn btn--accent btn--lg">Free consultation</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="#" class="btn btn--accent nav__cta">Free consultation</a>
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+          <span class="visually-hidden">Menu</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero: track photo with the "lines" treatment (monochrome, only lane lines remain).
+       Drop the media-hero--lines class for the photo in natural colour. -->
+  <header class="media-hero media-hero--lines">
+    <div class="media-hero__media">
+      <picture>
+        <source media="(max-width: 48rem)" srcset="media/track-tall.jpg">
+        <img src="media/track-wide.jpg" alt="" fetchpriority="high">
+      </picture>
+      <!-- Video alternative: replace <picture> with this once hero.mp4 / hero-mobile.mp4 exist.
+      <video autoplay muted loop playsinline preload="metadata" poster="media/track-wide.jpg" aria-hidden="true">
+        <source src="media/hero-mobile.mp4" type="video/mp4" media="(max-width: 48rem)">
+        <source src="media/hero.mp4" type="video/mp4">
+      </video>
+      -->
+    </div>
+    <div class="container stack" style="--stack-gap: var(--space-5)">
+      <span class="badge"><span class="badge__dot"></span>Now working with the Class of 2028</span>
+      <h1 class="display">Your talent.<br><span class="accent">Their roster.</span></h1>
+      <p class="lead">We mentor young athletes through college recruiting: building your profile, connecting you with the right coaches, and guiding you all the way to signing day.</p>
+      <div class="row" style="padding-top: var(--space-3)">
+        <a href="#" class="btn btn--accent btn--lg">Book a free consultation <span class="btn__arrow">&rarr;</span></a>
+        <a href="#" class="btn btn--secondary btn--lg">How it works</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Colour -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow sg-label">01 · Colour</p>
+      <div class="grid swatches">
+        <div class="swatch"><div class="swatch__chip" style="background: var(--color-bg)"></div><div class="swatch__meta">Background<code>#0a0a0a</code></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--color-surface)"></div><div class="swatch__meta">Surface<code>#111111</code></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--color-surface-2)"></div><div class="swatch__meta">Surface 2<code>#181818</code></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--color-surface-3)"></div><div class="swatch__meta">Surface 3<code>#222222</code></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--color-border-strong)"></div><div class="swatch__meta">Border strong<code>#3a3a3a</code></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--color-text-subtle)"></div><div class="swatch__meta">Text subtle<code>#8a8a8a</code></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--color-text-muted)"></div><div class="swatch__meta">Text muted<code>#a3a3a3</code></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--color-text)"></div><div class="swatch__meta">Text<code>#f5f5f5</code></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--color-accent)"></div><div class="swatch__meta">Accent (theme)<code id="accent-hex">#ff5a1f</code></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--mark-yellow)"></div><div class="swatch__meta">Mark: sprints<code>#ffcc1a</code></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--mark-blue)"></div><div class="swatch__meta">Mark: hurdles<code>#4a8bff</code></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--mark-green)"></div><div class="swatch__meta">Mark: distance<code>#34d17a</code></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow sg-label">02 · Typography: Barlow Condensed + Inter</p>
+      <div class="type-row"><code>display</code><span class="display">Signing day</span></div>
+      <div class="type-row"><code>h1</code><h1>Get seen by the right coaches</h1></div>
+      <div class="type-row"><code>h2</code><h2>How it works</h2></div>
+      <div class="type-row"><code>h3</code><h3>Recruiting roadmap</h3></div>
+      <div class="type-row"><code>h4</code><h4>Freshman to senior year</h4></div>
+      <div class="type-row"><code>lead</code><p class="lead">The recruiting process is confusing. We make it clear for athletes and parents.</p></div>
+      <div class="type-row"><code>body</code><p>Every athlete starts with an honest assessment of where they stand: marks, academics and the programs that are a realistic fit. From there we build a plan, open doors with coaches and stay with you until you commit. <a href="#">Read more</a>.</p></div>
+      <div class="type-row"><code>eyebrow</code><span class="eyebrow">Athlete story</span></div>
+    </div>
+  </section>
+
+  <!-- Buttons & badges -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow sg-label">03 · Buttons &amp; badges</p>
+      <div class="stack" style="--stack-gap: var(--space-5)">
+        <div class="row">
+          <a href="#" class="btn btn--primary">Primary <span class="btn__arrow">&rarr;</span></a>
+          <a href="#" class="btn btn--accent">Accent</a>
+          <a href="#" class="btn btn--secondary">Secondary</a>
+          <a href="#" class="btn btn--ghost">Ghost link <span class="btn__arrow">&rarr;</span></a>
+        </div>
+        <div class="row">
+          <span class="badge"><span class="badge__dot"></span>Available</span>
+          <span class="badge badge--sprints"><span class="badge__dot"></span>Sprints &amp; relays</span>
+          <span class="badge badge--hurdles"><span class="badge__dot"></span>Hurdles</span>
+          <span class="badge badge--distance"><span class="badge__dot"></span>Distance</span>
+          <span class="badge badge--field"><span class="badge__dot"></span>Field events</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cards & stats -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow sg-label">04 · Cards &amp; stats</p>
+      <div class="grid">
+        <article class="card card--interactive reveal">
+          <span class="card__index">01</span>
+          <h3 class="card__title">Athlete profile</h3>
+          <p class="card__body">A standout recruiting profile and highlight video that shows coaches exactly what you bring.</p>
+        </article>
+        <article class="card card--interactive reveal">
+          <span class="card__index">02</span>
+          <h3 class="card__title">Coach connections</h3>
+          <p class="card__body">We identify programs that fit you athletically and academically, and get you in front of their coaches.</p>
+        </article>
+        <article class="card card--interactive reveal">
+          <span class="card__index">03</span>
+          <h3 class="card__title">Signing support</h3>
+          <p class="card__body">Visits, eligibility, offers and scholarship decisions: we guide you and your family through every step.</p>
+        </article>
+      </div>
+      <div class="grid" style="--grid-min: 10rem; margin-top: var(--space-8)">
+        <div class="stat"><div class="stat__value">50+</div><div class="stat__label">Athletes signed</div></div>
+        <div class="stat"><div class="stat__value">30</div><div class="stat__label">College programs</div></div>
+        <div class="stat"><div class="stat__value">D1–D3</div><div class="stat__label">Every division</div></div>
+        <div class="stat"><div class="stat__value accent">100%</div><div class="stat__label">Personal mentoring</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section class="section">
+    <div class="container container--narrow">
+      <p class="eyebrow sg-label">05 · Form</p>
+      <form class="stack" style="--stack-gap: var(--space-5)" onsubmit="return false">
+        <div class="field">
+          <label class="field__label" for="name">Name</label>
+          <input class="input" id="name" placeholder="Athlete or parent name">
+        </div>
+        <div class="field">
+          <label class="field__label" for="email">Email</label>
+          <input class="input" id="email" type="email" placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label class="field__label" for="event">Events &amp; graduation year</label>
+          <input class="input" id="event" placeholder="e.g. 400m / 800m, Class of 2028">
+        </div>
+        <div class="field">
+          <label class="field__label" for="msg">Tell us about your goals</label>
+          <textarea class="input" id="msg" placeholder="Current marks, schools you're interested in, questions you have..."></textarea>
+        </div>
+        <button class="btn btn--primary btn--lg">Send message <span class="btn__arrow">&rarr;</span></button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Feature video -->
+  <section class="section">
+    <div class="container stack" style="--stack-gap: var(--space-6)">
+      <p class="eyebrow">07 · Feature video</p>
+      <h2>See how it works</h2>
+      <div class="video-frame video-frame--scroll">
+        <button class="video-frame__play" type="button" data-video-src="media/feature.mp4" aria-label="Play video: how our recruiting process works">
+          <img src="media/feature-poster.jpg" alt="" loading="lazy">
+          <span class="video-frame__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+          </span>
+        </button>
+        <span class="video-frame__caption">How it works · 2:14</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spacing -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow sg-label">06 · Spacing (4px base)</p>
+      <div class="stack" style="--stack-gap: var(--space-3)">
+        <div class="type-row" style="border: 0; padding: 0"><code>space-2 · 8px</code><div class="space-bar" style="width: var(--space-2)"></div></div>
+        <div class="type-row" style="border: 0; padding: 0"><code>space-4 · 16px</code><div class="space-bar" style="width: var(--space-4)"></div></div>
+        <div class="type-row" style="border: 0; padding: 0"><code>space-6 · 32px</code><div class="space-bar" style="width: var(--space-6)"></div></div>
+        <div class="type-row" style="border: 0; padding: 0"><code>space-8 · 64px</code><div class="space-bar" style="width: var(--space-8)"></div></div>
+        <div class="type-row" style="border: 0; padding: 0"><code>space-10 · 128px</code><div class="space-bar" style="width: var(--space-10)"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Theme switcher (styleguide only) -->
+  <div class="switcher" role="group" aria-label="Colour theme">
+    <button class="switcher__swatch" style="--sw:#ff5a1f" data-theme-btn="" data-name="Track orange" title="Track orange"></button>
+    <button class="switcher__swatch" style="--sw:#e5482f" data-theme-btn="brick" data-name="Brick red" title="Brick red"></button>
+    <button class="switcher__swatch" style="--sw:#3d7eff" data-theme-btn="blue" data-name="Berlin blue" title="Berlin blue"></button>
+    <button class="switcher__swatch" style="--sw:#2fd06f" data-theme-btn="green" data-name="Infield green" title="Infield green"></button>
+    <button class="switcher__swatch" style="--sw:#9b7bff" data-theme-btn="purple" data-name="Purple" title="Purple"></button>
+    <button class="switcher__swatch" style="--sw:#ffcc1a" data-theme-btn="yellow" data-name="Relay yellow" title="Relay yellow"></button>
+    <button class="switcher__swatch" style="--sw:#ededed" data-theme-btn="stealth" data-name="Stealth" title="Stealth (monochrome)"></button>
+    <span class="switcher__name" id="theme-name">Track orange</span>
+    <label><input type="checkbox" id="tint-toggle"> Tint hero lines</label>
+  </div>
+
+  <script>
+    // Theme switcher: sets <html data-theme>, remembers choice. ?theme=blue&tint=1 also works.
+    const root = document.documentElement;
+    const hero = document.querySelector('.media-hero');
+    const params = new URLSearchParams(location.search);
+    const applyTheme = (theme) => {
+      if (theme) root.dataset.theme = theme; else delete root.dataset.theme;
+      document.querySelectorAll('[data-theme-btn]').forEach((b) => {
+        const on = b.dataset.themeBtn === theme;
+        b.setAttribute('aria-pressed', String(on));
+        if (on) document.getElementById('theme-name').textContent = b.dataset.name;
+      });
+      document.getElementById('accent-hex').textContent =
+        getComputedStyle(root).getPropertyValue('--color-accent').trim();
+      localStorage.setItem('sg-theme', theme);
+    };
+    const applyTint = (on) => {
+      hero.classList.toggle('media-hero--tint', on);
+      document.getElementById('tint-toggle').checked = on;
+      localStorage.setItem('sg-tint', on ? '1' : '');
+    };
+    document.querySelectorAll('[data-theme-btn]').forEach((b) =>
+      b.addEventListener('click', () => applyTheme(b.dataset.themeBtn)));
+    document.getElementById('tint-toggle').addEventListener('change', (e) => applyTint(e.target.checked));
+    applyTheme(params.get('theme') ?? localStorage.getItem('sg-theme') ?? '');
+    applyTint((params.get('tint') ?? localStorage.getItem('sg-tint')) === '1');
+
+    // Mobile menu: toggle open/closed; close on Escape or when a link is chosen
+    const nav = document.querySelector('.nav');
+    const toggle = nav.querySelector('.nav__toggle');
+    const setMenu = (open) => {
+      nav.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    };
+    toggle.addEventListener('click', () => setMenu(!nav.classList.contains('is-open')));
+    nav.querySelectorAll('.nav__links a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+    // Background videos: still image for reduced-motion users; pause when off-screen to save battery
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('.media-hero video').forEach((video) => {
+      if (reduceMotion) {
+        video.removeAttribute('autoplay');
+        video.pause();
+        return;
+      }
+      new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) video.play().catch(() => {});
+        else video.pause();
+      }).observe(video);
+    });
+
+    // Feature video: swap the poster for the real video only when clicked (keeps the page light)
+    document.querySelectorAll('.video-frame__play').forEach((button) => {
+      button.addEventListener('click', () => {
+        const video = document.createElement('video');
+        video.src = button.dataset.videoSrc;
+        video.controls = true;
+        video.autoplay = true;
+        video.playsInline = true;
+        const frame = button.closest('.video-frame');
+        frame.querySelector('.video-frame__caption')?.remove();
+        button.replaceWith(video);
+        video.focus();
+      });
+    });
+
+    // Reveal-on-scroll: fades .reveal elements in as they enter the viewport
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>

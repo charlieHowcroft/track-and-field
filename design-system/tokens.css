@@ -1,0 +1,148 @@
+/* ==========================================================================
+   Design tokens: the single source of truth for colour, type and spacing.
+   Change values here; everything else references these variables.
+   ========================================================================== */
+
+:root {
+  /* ---- Colour: surfaces (darkest to lightest) ---- */
+  --color-bg:          #0a0a0a;  /* page background */
+  --color-surface:     #111111;  /* cards, panels */
+  --color-surface-2:   #181818;  /* raised / hover surfaces */
+  --color-surface-3:   #222222;  /* inputs, pressed states */
+
+  /* ---- Colour: lines ---- */
+  --color-border:        #262626;
+  --color-border-strong: #3a3a3a;
+
+  /* ---- Colour: text (all pass WCAG AA on --color-bg) ---- */
+  --color-text:        #f5f5f5;  /* primary */
+  --color-text-muted:  #a3a3a3;  /* secondary copy */
+  --color-text-subtle: #8a8a8a;  /* captions, meta */
+
+  /* ---- Colour: accent (used sparingly, one highlight per view) ---- */
+  --color-accent:       #ff5a1f;  /* track orange */
+  --color-accent-hover: #ff7a47;
+  --color-accent-glow:  rgb(255 90 31 / 0.14);
+  --color-on-accent:    #0a0a0a;
+
+  /* ---- Colour: feedback ---- */
+  --color-success: #4ade80;
+  --color-error:   #f87171;
+
+  /* ---- Typography ---- */
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;  /* big uppercase headings */
+  --font-sans:"Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+  /* Fluid type scale: scales smoothly between mobile and desktop */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);
+  --text-xl:   clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-2xl:  clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  --text-3xl:  clamp(2rem, 1.5rem + 2vw, 3rem);
+  --text-4xl:  clamp(2.5rem, 1.75rem + 3.5vw, 4.5rem);
+  --text-5xl:  clamp(3rem, 2rem + 5vw, 6rem);
+
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+
+  --leading-tight:  1.05;
+  --leading-snug:   1.3;
+  --leading-normal: 1.6;
+
+  --tracking-tight: -0.035em;  /* large headings */
+  --tracking-snug:  -0.015em;
+  --tracking-wide:  0.12em;    /* small uppercase labels */
+
+  /* ---- Spacing (4px base) ---- */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.5rem;
+  --space-6:  2rem;
+  --space-7:  3rem;
+  --space-8:  4rem;
+  --space-9:  6rem;
+  --space-10: 8rem;
+
+  /* ---- Layout ---- */
+  --container-max:    72rem;
+  --container-narrow: 44rem;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+
+  /* ---- Shape ---- */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   14px;
+  --radius-full: 999px;
+
+  /* ---- Depth (on black: light edges, not heavy shadows) ---- */
+  --shadow-edge: inset 0 1px 0 rgb(255 255 255 / 0.04);
+  --shadow-lg:   0 24px 48px -12px rgb(0 0 0 / 0.6);
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 600ms;
+}
+
+/* ==========================================================================
+   Themes: accent colours based on running track surfaces.
+   Set on <html data-theme="...">. No attribute = track orange (default).
+   Every accent passes WCAG AA (4.5:1) as text on --color-bg and with
+   --color-on-accent text on top of it.
+   ========================================================================== */
+
+[data-theme="brick"] {   /* Classic red: the international standard surface */
+  --color-accent:       #e5482f;
+  --color-accent-hover: #ef6a52;
+  --color-accent-glow:  rgb(229 72 47 / 0.14);
+}
+[data-theme="blue"] {    /* Berlin blue: Olympic Stadium, sharp contrast with white lines */
+  --color-accent:       #3d7eff;
+  --color-accent-hover: #6699ff;
+  --color-accent-glow:  rgb(61 126 255 / 0.14);
+}
+[data-theme="green"] {   /* Infield green */
+  --color-accent:       #2fd06f;
+  --color-accent-hover: #5ade8e;
+  --color-accent-glow:  rgb(47 208 111 / 0.12);
+}
+[data-theme="purple"] {  /* Custom / high-end school branding */
+  --color-accent:       #9b7bff;
+  --color-accent-hover: #b59cff;
+  --color-accent-glow:  rgb(155 123 255 / 0.14);
+}
+[data-theme="yellow"] {  /* Relay-zone yellow marking */
+  --color-accent:       #ffcc1a;
+  --color-accent-hover: #ffd94d;
+  --color-accent-glow:  rgb(255 204 26 / 0.10);
+}
+[data-theme="stealth"] { /* Monochrome: white is the only highlight */
+  --color-accent:       #ededed;
+  --color-accent-hover: #ffffff;
+  --color-accent-glow:  rgb(255 255 255 / 0.06);
+}
+
+/* Lane marking colours (World Athletics): a secondary palette for
+   colour-coding event groups. Use small (dots, rules, tags), never as a
+   second brand colour. */
+:root {
+  --mark-white:  #f5f5f5;  /* field events: start/finish lines */
+  --mark-yellow: #ffcc1a;  /* sprints & relays: 400m start, relay zones */
+  --mark-blue:   #4a8bff;  /* hurdles: hurdle and relay markers */
+  --mark-green:  #34d17a;  /* distance: group starts, breaklines */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}
