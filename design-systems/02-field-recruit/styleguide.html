@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design System · Field Recruit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="components.css">
+  <style>
+    /* Styleguide-only helpers */
+    .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: var(--space-4); }
+    .swatch__chip { height: 6rem; border: 1px solid var(--color-border); }
+    .swatch__name { margin-top: var(--space-2); font-weight: var(--weight-medium); }
+    .type-row { display: grid; gap: var(--space-2); padding-block: var(--space-4); border-bottom: 1px solid var(--color-border); }
+    .sample-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-5); }
+    .on-ink { padding: var(--space-6); background: var(--color-ink-bg); }
+    .on-ink .brand { --color-text: var(--color-on-ink); }
+    .placeholder-note { margin-top: var(--space-4); font-size: var(--text-sm); color: var(--color-text-muted); }
+  </style>
+</head>
+<body>
+
+  <!-- Hero: the mood board composition -->
+  <header class="hero">
+    <div class="hero__brand">
+      <a class="brand" href="#" aria-label="Field Recruit home">
+        <span class="brand__word"><span>field</span><span>recruit</span></span>
+      </a>
+    </div>
+
+    <div class="hero__media">
+      <video autoplay muted loop playsinline preload="auto" poster="media/hero-poster.jpg" aria-hidden="true">
+        <source src="media/hero.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="hero__side">
+      <a class="icon-link" href="https://www.instagram.com/fieldrecruit/" target="_blank" rel="noopener" aria-label="Field Recruit on Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container split">
+      <p class="label">01 colour</p>
+      <div class="swatches">
+        <div><div class="swatch__chip" style="background:var(--color-accent)"></div><p class="swatch__name">Field blue</p><p class="small muted">#355095</p></div>
+        <div><div class="swatch__chip" style="background:var(--color-accent-hover)"></div><p class="swatch__name">Deep blue</p><p class="small muted">#263c75</p></div>
+        <div><div class="swatch__chip" style="background:var(--color-text-muted)"></div><p class="swatch__name">Muted blue</p><p class="small muted">#556594</p></div>
+        <div><div class="swatch__chip" style="background:var(--color-surface-2)"></div><p class="swatch__name">Blue tint</p><p class="small muted">#e9edf6</p></div>
+        <div><div class="swatch__chip" style="background:var(--color-bg)"></div><p class="swatch__name">Paper</p><p class="small muted">#f8f8f8</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <p class="label">02 type: Inter Tight</p>
+      <div>
+        <div class="type-row"><span class="label">h1</span><h1>find the right fit</h1></div>
+        <div class="type-row"><span class="label">h2</span><h2>who we work with</h2></div>
+        <div class="type-row"><span class="label">h3</span><h3>navigating the NCAA</h3></div>
+        <div class="type-row"><span class="label">h4</span><h4>parents &amp; families</h4></div>
+        <div class="type-row"><span class="label">lead</span><p class="lead">A premium service of college recruiting and mentoring built around a passion for helping athletes develop both in and out of their sport.</p></div>
+        <div class="type-row"><span class="label">body</span><p>The goal is to give athletes someone they can speak to who has been through the process themselves and understands the highs, lows, decisions and challenges that come with being a competitive runner.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <p class="label">03 identity</p>
+      <div class="stack">
+        <div class="sample-row">
+          <a class="brand" style="--brand-size:3.5rem" href="#" aria-label="Field Recruit"><img class="brand__bird" src="media/bird.png" alt=""><span class="brand__word"><span>field</span><span>recruit</span></span></a>
+          <a class="brand" href="#" aria-label="Field Recruit"><img class="brand__bird" src="media/bird.png" alt=""><span class="brand__word"><span>field</span><span>recruit</span></span></a>
+        </div>
+        <div class="on-ink">
+          <a class="brand" style="--brand-size:2.5rem" href="#" aria-label="Field Recruit"><span class="brand__word"><span>field</span><span>recruit</span></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <p class="label">04 actions &amp; navigation</p>
+      <div class="stack" style="--stack-gap:var(--space-6)">
+        <div class="sample-row">
+          <a class="btn btn--primary" href="#">book a free consultation</a>
+          <a class="btn btn--secondary" href="#">see services</a>
+          <a class="link-arrow" href="#">my experience</a>
+        </div>
+        <div class="site-header">
+          <a class="brand" href="#" aria-label="Field Recruit"><img class="brand__bird" src="media/bird.png" alt=""><span class="brand__word"><span>field</span><span>recruit</span></span></a>
+          <div class="site-header__nav">
+            <ul class="menu">
+              <li><a href="#" aria-current="page">my experience</a></li>
+              <li><a href="#">free consultation</a></li>
+              <li><a href="#">services</a></li>
+            </ul>
+            <a class="icon-link" href="https://www.instagram.com/fieldrecruit/" target="_blank" rel="noopener" aria-label="Field Recruit on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="container split">
+      <p class="label">05 founder &amp; marks</p>
+      <div class="stack" style="--stack-gap:var(--space-6)">
+        <h2>Samuel Field</h2>
+        <p class="lead">Tasmanian born, graduate of Florida State University (Ba Sports Management and Marketing) and Loyola University Chicago (MBA). Recruited to the United States in 2019 to run Track and Cross Country, drawn to the college system to fuel a professional career in athletics.</p>
+        <div class="marks">
+          <div class="mark"><p class="mark__event">800m</p><p class="mark__time"><span class="mark__from">1:53 &gt;</span>1:49</p></div>
+          <div class="mark"><p class="mark__event">1500m</p><p class="mark__time"><span class="mark__from">3:49 &gt;</span>3:41</p></div>
+          <div class="mark"><p class="mark__event">Mile</p><p class="mark__time">3:58</p></div>
+          <div class="mark"><p class="mark__event">3000m</p><p class="mark__time"><span class="mark__from">8:27 &gt;</span>8:06</p></div>
+        </div>
+        <ul class="logos">
+          <li><img src="media/logos/florida-state.png" alt="Florida State University" loading="lazy"></li>
+          <li><img src="media/logos/new-mexico.svg" alt="University of New Mexico" loading="lazy"></li>
+          <li><img src="media/logos/loyola-chicago.svg" alt="Loyola University Chicago" loading="lazy"></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ink" id="services">
+    <div class="container stack" style="--stack-gap:var(--space-7)">
+      <p class="label">06 services, on the inverse ground</p>
+      <div class="grid grid--2">
+        <div class="stack">
+          <h3>recruiting</h3>
+          <p>For athletes who are interested in competing in the United States, Field Recruit provides guidance throughout the entire college recruiting process.</p>
+        </div>
+        <div class="stack">
+          <h3>mentoring</h3>
+          <p>Whether an athlete wants to pursue college, chase a professional career, continue running at home or become the best athlete they can be, Field Recruit wants to provide ongoing mentoring and support.</p>
+        </div>
+      </div>
+      <div class="sample-row">
+        <a class="btn btn--primary" href="#">book a free consultation</a>
+        <a class="btn btn--secondary" href="#">see packages</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <p class="label">07 who we work with</p>
+      <ul class="rows">
+        <li class="row"><p class="row__title">junior athletes</p><p class="row__text">For athletes considering college and wanting to understand what opportunities are available to them.</p></li>
+        <li class="row"><p class="row__title">parents &amp; families</p><p class="row__text">For families looking for honest guidance through the recruiting process and a better understanding of the NCAA.</p></li>
+        <li class="row"><p class="row__title">college athletes</p><p class="row__text">For athletes already in the NCAA who want additional mentoring, guidance and support throughout their college career.</p></li>
+        <li class="row"><p class="row__title">athletes</p><p class="row__text">For runners who don't choose the college pathway but still want access to mentoring, performance guidance and someone invested in their development.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <p class="label">08 disclosure</p>
+      <div>
+        <details class="disclosure" open>
+          <summary>what is the NCAA?</summary>
+          <p class="disclosure__body">The NCAA is the main governing body for university sport in the United States. The organisation provides a structured pathway for athletes to combine university education with competitive sport.</p>
+        </details>
+        <details class="disclosure">
+          <summary>how do the three divisions differ?</summary>
+          <p class="disclosure__body">The three divisions offer different levels of competition, university environments, academic opportunities and scholarship structures. Understanding these differences is an important part of finding the right university and opportunity for each athlete.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <p class="label">09 packages &amp; testimonials</p>
+      <div class="stack">
+        <div class="grid grid--2">
+          <div class="panel stack" style="--stack-gap:var(--space-3)"><h4>package name</h4><p class="muted">Placeholder panel: the brief has no package details yet.</p></div>
+          <div class="panel panel--tint stack" style="--stack-gap:var(--space-3)"><h4>package name</h4><p class="muted">Tinted variant, for a recommended package.</p></div>
+        </div>
+        <blockquote class="quote">
+          <p>Placeholder quote: the brief has no testimonials yet.</p>
+          <footer>Name, event, school</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="consultation">
+    <div class="container split">
+      <p class="label">10 form</p>
+      <form class="stack" onsubmit="return false">
+        <h2>free consultation</h2>
+        <div class="field"><label for="f-name">Name</label><input id="f-name" type="text" placeholder="Athlete or parent name"></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" placeholder="you@example.com"></div>
+        <div class="field"><label for="f-goals">Tell us about your goals</label><textarea id="f-goals" placeholder="Events, marks, schools you're interested in"></textarea></div>
+        <button class="btn btn--primary" type="submit">send</button>
+      </form>
+    </div>
+  </section>
+
+  <div class="container site-footer">
+    <a class="brand" href="#" aria-label="Field Recruit"><span class="brand__word"><span>field</span><span>recruit</span></span></a>
+    <p class="small muted">Design system 02</p>
+  </div>
+
+</body>
+</html>
