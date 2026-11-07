@@ -1,0 +1,16 @@
+/* Page-level styles for the one-page site. Reusable parts belong in the
+   design system: design-systems/02-field-recruit/components.css */
+
+/* Keeps section headings clear of the fixed banner when a link scrolls to them */
+html { scroll-padding-top: 5.5rem; }
+
+.hero__title { font: inherit; letter-spacing: inherit; }
+
+/* Section heading stays in view beside its longer content */
+@media (min-width: 60rem) and (min-height: 56rem) {
+  .split__head { position: sticky; top: 7.5rem; align-self: start; }
+}
+
+.services__item > h3 { margin-bottom: var(--space-5); }
+
+.form-status { min-height: 1.5em; font-size: var(--text-sm); }
